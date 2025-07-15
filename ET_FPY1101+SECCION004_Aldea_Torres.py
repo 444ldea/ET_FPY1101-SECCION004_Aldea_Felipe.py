@@ -24,29 +24,31 @@ def stock_marca(marca):
     marca = marca.lower()
     total = 0
     for modelo, datos in productos.items():
-        if datos[0].lower == marca:
+        if datos[0].lower() == marca:
             if modelo in stock:
                 total += stock[modelo][1]
-                print(f"el stock total es: {total}")
+    print(f"El stock total para la marca {marca} es: {total}")
 
-def busqueda_precio(p_min, p_max):
+ddef busqueda_precio(p_min, p_max):
     busqueda = []
     for modelo, datos_stock in stock.items():
         precio, cantidad = datos_stock
         if p_min <= precio <= p_max and cantidad > 0:
             marca = productos[modelo][0]
-            busqueda = modelo.append(f"{marca}-{modelo}")
-            if busqueda:
-                for item in sorted(busqueda):
-                    print(item)
-            else:
-                print("no se encontró.")
+            busqueda.append(f"{marca}-{modelo}") 
+    if busqueda:
+        for item in sorted(busqueda):
+            print(item)
+    else:
+        print("No se encontró.")
 
 def actualizar_precio(modelo, p):
     if modelo in stock:
-        stock[modelo][0] = p
+        stock[modelo][0] = p  # Actualizar el precio
+        print(f"Precio del modelo {modelo} actualizado a {p}")
         return True
     else:
+        print("Modelo no encontrado.")
         return False
     
 
