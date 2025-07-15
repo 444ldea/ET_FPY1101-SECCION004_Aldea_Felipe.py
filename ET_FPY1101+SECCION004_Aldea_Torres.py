@@ -70,6 +70,9 @@ while True:
         busqueda_precio(precio)
     elif opcion == "3":
         actualizar_precio()
+                modelo = input("ingrese el modelo a actualizar: ")
+        try:
+            nuevo_precio = int((input("ingrese el nuevo precio: "))
     elif opcion == "4":
         print("programa finalizado.")
         break
